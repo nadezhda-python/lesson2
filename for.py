@@ -16,10 +16,10 @@ def main(school_scores):
     total_score = 0
 
     for school_class in school_scores:
-        number_of_students = number_of_students + len(school_class["scores"])
+        number_of_students += len(school_class["scores"])
         total_score = total_score + sum(school_class["scores"])
-        print (f'В классе {school_class["school_class"]} средний бал учеников равен ' +
-        f'{round(sum(school_class["scores"])/len(school_class["scores"]), 2)}.')
+        print (f'В классе {school_class["school_class"]} средний бал учеников равен \
+        {round(sum(school_class["scores"])/len(school_class["scores"]), 2)}.')
 
     print(f'По всей школе средний бал учеников равен {round(total_score/number_of_students, 2)}')
 

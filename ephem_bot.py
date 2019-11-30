@@ -39,12 +39,14 @@ def greet_user(bot, update):
     print(text)
     update.message.reply_text(text)
 
+
 def talk_to_me(bot, update):
     user_text = update.message.text 
     print(user_text)
     update.message.reply_text(user_text)
 
-def planet_location(planet):
+
+def planet_constellation(planet):
     if planet == 'Mercury':
         return ephem.constellation(ephem.Mercury(datetime.today()))
     elif planet ==  'Venus':
@@ -66,12 +68,14 @@ def planet_location(planet):
     else:
         return 'Incorrect planet name, try again please'
 
-def planet_pos(bot, update):
+
+def planet_location(bot, update):
     planet = update.message.text.split()[-1].capitalize()
     print(planet)
-    result = planet_location(planet)
+    result = planet_constellation(planet)
     print(result)
     update.message.reply_text(result)
+
 
 def main():
     mybot = Updater("1044911545:AAFyjwA7mQFcVl5nGIcrYzxNTiWideWd1wM")
@@ -79,7 +83,7 @@ def main():
     
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
-    dp.add_handler(CommandHandler("planet", planet_pos))
+    dp.add_handler(CommandHandler("planet", planet_location))
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
     
     mybot.start_polling()

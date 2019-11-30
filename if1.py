@@ -16,8 +16,7 @@
 
 def main():
     
-    print ("Введите ваш возраст")
-    age = input()
+    age = input('Введите ваш возраст: ')
     
     try:
         age = int(float(age))
@@ -39,5 +38,4 @@ def main():
         return f'Вам уже {age}! Вам пора на пенсию.'
 
 if __name__ == "__main__":
-    result = main()
-    print (result)
+    print (main())

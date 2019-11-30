@@ -26,7 +26,7 @@ def ask_user_dict():
     while True:
         question = input('Задай вопрос на который я могу ответить: ')
         if question in question_answers:
-            return question_answers[question]
+            return question_answers.get(question)
         else:
             print ('Давай что-то полегче')
     
