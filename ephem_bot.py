@@ -12,6 +12,7 @@
   бота отвечать, в каком созвездии сегодня находится планета.
 
 """
+import secret
 import logging
 import ephem
 from datetime import datetime
@@ -78,7 +79,7 @@ def planet_location(bot, update):
 
 
 def main():
-    mybot = Updater("1044911545:AAFyjwA7mQFcVl5nGIcrYzxNTiWideWd1wM")
+    mybot = Updater(secret.key)
     #, request_kwargs=PROXY)
     
     dp = mybot.dispatcher
